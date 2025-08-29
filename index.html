@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Password Strength Visualizer</title>
+  <link rel="stylesheet" href="style.css" />
+  <meta name="description" content="All analysis runs locally in your browser. No passwords are stored or sent anywhere." />
+</head>
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>🔒 Password Strength Visualizer</h1>
+      <p class="tag">All checks happen locally. Nothing is uploaded.</p>
+    </header>
+
+    <main>
+      <label for="pwd" class="label">Enter password</label>
+      <div class="input-row">
+        <input id="pwd" type="password" autocomplete="off" autofocus />
+        <button id="toggle" aria-label="Show/Hide password">Show</button>
+      </div>
+
+      <div id="meta" class="meta">
+        <div><strong>Length:</strong> <span id="len">0</span></div>
+        <div><strong>Charset size (R):</strong> <span id="charset">0</span></div>
+        <div><strong>Entropy:</strong> <span id="entropy">0</span> bits</div>
+      </div>
+
+      <section class="meter">
+        <div class="bar" id="bar"></div>
+        <div class="ticks">
+          <span>weak</span><span>ok</span><span>strong</span><span>great</span>
+        </div>
+      </section>
+
+      <section class="times">
+        <h2>Estimated crack time (avg)</h2>
+        <ul>
+          <li><span>CPU (10⁶ guesses/s):</span> <strong id="cpu">–</strong></li>
+          <li><span>GPU (10¹⁰ guesses/s):</span> <strong id="gpu">–</strong></li>
+          <li><span>Rig x10 (10¹¹ guesses/s):</span> <strong id="rig">–</strong></li>
+          <li><span>Nation-scale (10¹² guesses/s):</span> <strong id="ns">–</strong></li>
+        </ul>
+      </section>
+
+      <section class="findings">
+        <h2>Findings</h2>
